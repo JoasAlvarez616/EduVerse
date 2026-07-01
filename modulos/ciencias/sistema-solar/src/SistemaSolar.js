@@ -1,9 +1,9 @@
 // modulos/sistema-solar/src/SistemaSolar.js
 
 import * as THREE from 'three';
-import { ModuleBase } from '../../../src/core/ModuleBase.js';
-import { ModalManager } from '../../../src/ui/ModalManager.js';
-import { crearIluminacion, crearFondoEstrellas, crearNebulosa } from './entorno.js';
+import { ModuleBase } from '../../../../src/core/ModuleBase.js';
+import { ModalManager } from '../../../../src/ui/ModalManager.js';
+import { crearIluminacion, crearFondoEstrellas, crearNebulosa, crearResplandorSol } from './entorno.js';
 import { DATOS_PLANETAS } from './datos.js';
 
 // ───────────────────────────────────────────────

@@ -1,8 +1,8 @@
 // modulos/sistema-solar/src/main.js
 
-import { Engine } from '../../../src/core/Engine.js';
+import { Engine } from '../../../../src/core/Engine.js';
 import { SistemaSolar } from './SistemaSolar.js';
-import { ModalManager } from '../../../src/ui/ModalManager.js';
+import { ModalManager } from '../../../../src/ui/ModalManager.js';
 
 console.log('🚀 Iniciando main.js');
 
