@@ -3,164 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌌 EduVerse</title>
+    <title>🌌 EduVerse · Menú Principal</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background: radial-gradient(ellipse at 50% 30%, #0f0c29, #050510);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-        .menu { max-width: 960px; width: 100%; text-align: center; }
-        .menu h1 {
-            font-size: 3.2rem;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #fbbf24, #f97316);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .menu > p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-        .categoria { margin-bottom: 40px; }
-        .categoria h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-align: left;
-            color: #cbd5e1;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            padding-bottom: 8px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .tarjeta {
-            background: rgba(255,255,255,0.04);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 24px;
-            padding: 28px 20px;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        .tarjeta:hover:not([style*="cursor:default"]) {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .tarjeta .icono { font-size: 3rem; display: block; margin-bottom: 12px; }
-        .tarjeta h3 { font-size: 1.1rem; margin-bottom: 4px; }
-        .tarjeta p { color: #94a3b8; font-size: 0.85rem; }
-        .badge {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.7rem;
-            padding: 4px 14px;
-            border-radius: 20px;
-            background: rgba(251,191,36,0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(251,191,36,0.15);
-        }
-        .badge.inactivo {
-            background: rgba(148,163,184,0.1);
-            color: #64748b;
-            border-color: rgba(148,163,184,0.08);
-        }
-        .footer {
-            color: #4a4a6a;
-            font-size: 0.75rem;
-            margin-top: 30px;
-        }
-        @media (max-width: 640px) {
-            .menu h1 { font-size: 2.2rem; }
-            .grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
-            .categoria h2 { text-align: center; }
-        }
-    </style>
 </head>
 <body>
-    <div class="menu">
-        <h1>🌌 EduVerse</h1>
-        <p>Explora el conocimiento a través de experiencias 3D interactivas</p>
 
-        <!-- 🔬 CIENCIAS -->
-        <div class="categoria">
-            <h2>🔬 Ciencias</h2>
-            <div class="grid">
-                <a href="modulos/sistema-solar/index.html" class="tarjeta">
-                    <span class="icono">🌞</span>
-                    <h3>Sistema Solar</h3>
-                    <p>Viaja entre planetas, lunas y anillos</p>
-                    <span class="badge">✨ Explorar</span>
-                </a>
-                <div class="tarjeta" style="opacity:0.5; cursor:default;">
-                    <span class="icono">🧬</span>
-                    <h3>Células</h3>
-                    <p>Descubre el mundo microscópico</p>
-                    <span class="badge inactivo">🔜 Próximamente</span>
-                </div>
-                <div class="tarjeta" style="opacity:0.5; cursor:default;">
-                    <span class="icono">⚛️</span>
-                    <h3>Átomos</h3>
-                    <p>Viaja al corazón de la materia</p>
-                    <span class="badge inactivo">🔜 Próximamente</span>
-                </div>
-            </div>
+    <!-- ══════════════════════════════════════════ -->
+    <!-- FONDO CON ESTRELLAS Y PARTÍCULAS         -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="fondo-estrellas">
+        <div class="estrella" style="--delay:0s; --top:10%; --left:5%; --size:2px;"></div>
+        <div class="estrella" style="--delay:2s; --top:20%; --left:80%; --size:3px;"></div>
+        <div class="estrella" style="--delay:4s; --top:50%; --left:15%; --size:1.5px;"></div>
+        <div class="estrella" style="--delay:6s; --top:70%; --left:90%; --size:2.5px;"></div>
+        <div class="estrella" style="--delay:3s; --top:85%; --left:30%; --size:2px;"></div>
+        <div class="estrella" style="--delay:7s; --top:15%; --left:60%; --size:1.8px;"></div>
+        <div class="estrella" style="--delay:1s; --top:40%; --left:95%; --size:2.2px;"></div>
+        <div class="estrella" style="--delay:5s; --top:60%; --left:10%; --size:1.5px;"></div>
+        <div class="estrella" style="--delay:8s; --top:90%; --left:70%; --size:2px;"></div>
+        <div class="estrella" style="--delay:2.5s; --top:5%; --left:45%; --size:1.8px;"></div>
+        <div class="estrella" style="--delay:9s; --top:30%; --left:35%; --size:2.8px;"></div>
+        <div class="estrella" style="--delay:3.5s; --top:75%; --left:55%; --size:1.2px;"></div>
+
+        <!-- 🆕 Estrellas fugaces -->
+    <div class="estrella-fugaz" style="--duracion: 6s; --retraso: 0s; --inicio-x: 15%; --inicio-y: 5%; --angulo: 35deg;"></div>
+    <div class="estrella-fugaz" style="--duracion: 8s; --retraso: 4s; --inicio-x: 75%; --inicio-y: 10%; --angulo: 30deg;"></div>
+    <div class="estrella-fugaz" style="--duracion: 7s; --retraso: 8s; --inicio-x: 45%; --inicio-y: 2%; --angulo: 40deg;"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- MENÚ PRINCIPAL                           -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="menu-principal">
+        <div class="header">
+            <h1>🌌 <span>EduVerse</span></h1>
+            <p>Explora el conocimiento a través de experiencias 3D interactivas</p>
         </div>
 
-        <!-- 🗣️ IDIOMAS -->
-        <div class="categoria">
-            <h2>🗣️ Idiomas</h2>
-            <div class="grid">
-                <div class="tarjeta" style="opacity:0.5; cursor:default;">
-                    <span class="icono">🇬🇧</span>
-                    <h3>Inglés</h3>
-                    <p>Aprende inglés de forma interactiva</p>
-                    <span class="badge inactivo">🔜 Próximamente</span>
+        <div class="grid-categorias">
+            <!-- Ciencias -->
+            <a href="categorias/ciencias/index.html" class="tarjeta-categoria" style="--color: #60a5fa; --glow: rgba(96, 165, 250, 0.4);">
+                <div class="icono">🔬</div>
+                <div class="info">
+                    <h3>Ciencias</h3>
+                    <p>Explora el universo, la vida y la materia</p>
+                </div>
+                <div class="estado">
+                    <span class="badge disponible">3 Temas</span>
+                </div>
+            </a>
+
+            <!-- Idiomas -->
+            <div class="tarjeta-categoria" style="--color: #34d399; --glow: rgba(52, 211, 153, 0.4); opacity: 0.5; cursor: default;">
+                <div class="icono">🗣️</div>
+                <div class="info">
+                    <h3>Idiomas</h3>
+                    <p>Aprende nuevos idiomas de forma divertida</p>
+                </div>
+                <div class="estado">
+                    <span class="badge proximamente">🔜 Próximamente</span>
                 </div>
             </div>
-        </div>
 
-        <!-- ➗ MATEMÁTICAS -->
-        <div class="categoria">
-            <h2>➗ Matemáticas</h2>
-            <div class="grid">
-                <div class="tarjeta" style="opacity:0.5; cursor:default;">
-                    <span class="icono">🔢</span>
-                    <h3>Números</h3>
+            <!-- Matemáticas -->
+            <div class="tarjeta-categoria" style="--color: #fbbf24; --glow: rgba(251, 191, 36, 0.4); opacity: 0.5; cursor: default;">
+                <div class="icono">➗</div>
+                <div class="info">
+                    <h3>Matemáticas</h3>
                     <p>Descubre el poder de los números</p>
-                    <span class="badge inactivo">🔜 Próximamente</span>
+                </div>
+                <div class="estado">
+                    <span class="badge proximamente">🔜 Próximamente</span>
                 </div>
             </div>
-        </div>
 
-        <!-- 🎨 ARTE -->
-        <div class="categoria">
-            <h2>🎨 Arte</h2>
-            <div class="grid">
-                <div class="tarjeta" style="opacity:0.5; cursor:default;">
-                    <span class="icono">🖌️</span>
-                    <h3>Dibujo</h3>
+            <!-- Arte -->
+            <div class="tarjeta-categoria" style="--color: #f472b6; --glow: rgba(244, 114, 182, 0.4); opacity: 0.5; cursor: default;">
+                <div class="icono">🎨</div>
+                <div class="info">
+                    <h3>Arte</h3>
                     <p>Despierta tu creatividad</p>
-                    <span class="badge inactivo">🔜 Próximamente</span>
+                </div>
+                <div class="estado">
+                    <span class="badge proximamente">🔜 Próximamente</span>
                 </div>
             </div>
+
+            <!-- Geografía -->
+            <div class="tarjeta-categoria" style="--color: #22d3ee; --glow: rgba(34, 211, 238, 0.4); opacity: 0.5; cursor: default;">
+                <div class="icono">🌍</div>
+                <div class="info">
+                    <h3>Geografía</h3>
+                    <p>Explora el mundo desde el espacio</p>
+                </div>
+                <div class="estado">
+                    <span class="badge proximamente">🔜 Próximamente</span>
+                </div>
+            </div>
+
+            <!-- Tecnología -->
+            <div class="tarjeta-categoria" style="--color: #a78bfa; --glow: rgba(167, 139, 250, 0.4); opacity: 0.5; cursor: default;">
+                <div class="icono">💻</div>
+                <div class="info">
+                    <h3>Tecnología</h3>
+                    <p>Viaja al futuro de la innovación</p>
+                </div>
+                <div class="estado">
+                    <span class="badge proximamente">🔜 Próximamente</span>
+                </div>
+            </div>
+
         </div>
 
         <p class="footer">🚀 Aprende Jugando · Proyecto educativo interactivo</p>
     </div>
+
 </body>
 </html>
