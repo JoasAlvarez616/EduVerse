@@ -1,310 +1,245 @@
 /* ==========================================
-   CONFIGURACIÓN GENERAL (MATEMÁTICAS)
-   ========================================== */
+   ➗ MATEMÁTICAS - SALA DE DESAFÍOS
+   ══════════════════════════════════════════ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
-    width: 100%;
+body {
     min-height: 100vh;
+    font-family: 'Fredoka', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0c0a08;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-body {
-    font-family: 'Fredoka', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: radial-gradient(ellipse at 30% 20%, #1a0a00, #0f0a0a);
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-}
-
-#fondo-estrellas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.estrella {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    animation: parpadeo 3s ease-in-out infinite;
-    animation-delay: var(--delay);
-    width: var(--size);
-    height: var(--size);
-    top: var(--top);
-    left: var(--left);
-    opacity: 0.6;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes parpadeo {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
-}
-
-.estrella-fugaz {
-    position: absolute;
-    width: 120px;
-    height: 2px;
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.7));
-    border-radius: 1px;
-    opacity: 0;
-    transform: rotate(var(--angulo));
-    animation: fugaz var(--duracion) ease-in-out infinite;
-    animation-delay: var(--retraso);
-    top: var(--inicio-y);
-    left: var(--inicio-x);
-}
-
-@keyframes fugaz {
-    0% { opacity: 0; transform: translate(0, 0) rotate(var(--angulo)) scaleX(0); }
-    5% { opacity: 1; transform: translate(0, 0) rotate(var(--angulo)) scaleX(1); }
-    15% { opacity: 0; transform: translate(150px, 100px) rotate(var(--angulo)) scaleX(0); }
-    100% { opacity: 0; }
-}
-
-#contenido-categoria {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 30px 20px 40px;
-    max-width: 1100px;
-    width: 100%;
-    animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.btn-volver {
+.btn-back {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 10;
-    color: #f97316;
+    z-index: 100;
     text-decoration: none;
+    color: #f97316;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 10px 16px;
+    border-radius: 12px;
     font-family: 'Fredoka', sans-serif;
-    font-size: 0.9rem;
-    background: rgba(15, 12, 30, 0.6);
-    backdrop-filter: blur(8px);
-    padding: 10px 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(249, 115, 22, 0.15);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s ease;
 }
 
-.btn-volver:hover {
-    color: white;
-    background: rgba(249, 115, 22, 0.2);
-    border-color: rgba(249, 115, 22, 0.3);
+.btn-back:hover {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: rgba(249, 115, 22, 0.15);
 }
 
-.header-categoria {
+.matematicas-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero {
+    text-align: center;
     margin-bottom: 45px;
 }
 
-.header-categoria h1 {
-    font-size: 3.5rem;
+.hero h1 {
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: -1px;
-    line-height: 1.2;
     margin-bottom: 8px;
 }
 
-.header-categoria h1 span {
-    background: var(--gradiente);
+.hero h1 span {
+    background: linear-gradient(135deg, #f97316, #ef4444);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.header-categoria p {
+.hero p {
     color: #94a3b8;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.6;
 }
 
-.grid-temas {
+/* ═══════════════════════════════════════════════
+   DESAFÍOS (grid de tarjetas)
+   ═══════════════════════════════════════════════ */
+.desafios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
 }
 
-.tarjeta-tema {
+/* ─── TARJETA DE DESAFÍO ─── */
+.desafio-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: rgba(15, 12, 30, 0.6);
+    background: rgba(15, 12, 30, 0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(249, 115, 22, 0.08);
-    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
     padding: 28px 18px 22px;
     text-decoration: none;
     color: #ffffff;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.4s ease,
-                border-color 0.4s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-    animation: aparecerEscalonado 0.6s ease forwards;
 }
 
-.tarjeta-tema:nth-child(1) { animation-delay: 0.1s; }
-.tarjeta-tema:nth-child(2) { animation-delay: 0.2s; }
-.tarjeta-tema:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes aparecerEscalonado {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.desafio-item.activo:hover {
+    transform: translateY(-6px);
+    border-color: rgba(249, 115, 22, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    background: rgba(15, 12, 30, 0.6);
 }
 
-.tarjeta-tema::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
+.desafio-item.activo:active {
+    transform: scale(0.97);
 }
 
-.tarjeta-tema:hover:not([style*="opacity: 0.5"])::before {
-    opacity: 1;
+.desafio-item.bloqueado {
+    opacity: 0.4;
+    cursor: default;
 }
 
-.tarjeta-tema::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 24px;
-    padding: 2px;
-    background: conic-gradient(from 0deg, transparent, var(--color), transparent, var(--color), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-.tarjeta-tema:hover:not([style*="opacity: 0.5"]) {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.tarjeta-tema:hover:not([style*="opacity: 0.5"])::after {
-    opacity: 1;
-}
-
-.tarjeta-tema:active:not([style*="opacity: 0.5"]) {
-    transform: scale(0.95) !important;
-    transition-duration: 0.05s;
-}
-
-.icono-tema {
-    font-size: 3.2rem;
+/* ─── ICONO ─── */
+.desafio-icono {
+    font-size: 3rem;
     margin-bottom: 12px;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s ease;
 }
 
-.tarjeta-tema:hover:not([style*="opacity: 0.5"]) .icono-tema {
-    transform: scale(1.15) rotate(-5deg);
+.desafio-item.activo:hover .desafio-icono {
+    transform: scale(1.1) rotate(-4deg);
 }
 
-.info-tema h3 {
+/* ─── INFO ─── */
+.desafio-info h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 4px;
     letter-spacing: -0.3px;
 }
 
-.info-tema p {
+.desafio-info p {
     color: #94a3b8;
     font-size: 0.85rem;
     font-weight: 400;
     line-height: 1.4;
 }
 
-.estado-tema {
+/* ─── ESTADO ─── */
+.desafio-estado {
     margin-top: 14px;
 }
 
 .badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    padding: 4px 14px;
+    padding: 4px 16px;
     border-radius: 20px;
-    letter-spacing: 0.3px;
     text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
 
-.badge.disponible {
-    background: rgba(249, 115, 22, 0.15);
+.badge:not(.locked) {
+    background: rgba(249, 115, 22, 0.08);
     color: #f97316;
-    border: 1px solid rgba(249, 115, 22, 0.15);
-    animation: pulseBadge 3s ease-in-out infinite;
+    border: 1px solid rgba(249, 115, 22, 0.06);
 }
 
-@keyframes pulseBadge {
-    0%, 100% { box-shadow: 0 0 5px rgba(249, 115, 22, 0.1); }
-    50% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.2); }
+.badge.locked {
+    background: rgba(148, 163, 184, 0.06);
+    color: #475569;
+    border: 1px solid rgba(148, 163, 184, 0.04);
 }
 
-.badge.proximamente {
-    background: rgba(148, 163, 184, 0.1);
-    color: #64748b;
-    border: 1px solid rgba(148, 163, 184, 0.08);
+/* ─── LÍNEA DECORATIVA ─── */
+.desafio-item.activo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #f97316, #ef4444);
+    opacity: 0.3;
 }
 
-.footer-categoria {
-    color: #4a4a6a;
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+.footer-info {
+    text-align: center;
+    color: #4a2a1a;
     font-size: 0.75rem;
-    font-weight: 400;
     letter-spacing: 0.5px;
     margin-top: 15px;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
-    .header-categoria h1 { font-size: 2.5rem; }
-    .header-categoria p { font-size: 0.95rem; padding: 0 15px; }
-    .grid-temas { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; gap: 14px; }
-    .tarjeta-tema { padding: 18px 16px; flex-direction: row; text-align: left; gap: 16px; align-items: center; }
-    .tarjeta-tema .info-tema { flex: 1; text-align: left; }
-    .tarjeta-tema .estado-tema { margin-top: 0; }
-    .icono-tema { font-size: 2.4rem; margin-bottom: 0; }
-    .btn-volver { top: 12px; left: 12px; font-size: 0.8rem; padding: 8px 14px; }
-    #contenido-categoria { padding: 20px 10px 30px; }
-    .header-categoria { margin-bottom: 30px; }
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 0.95rem; }
+
+    .desafios {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .desafio-item {
+        padding: 20px 16px;
+        flex-direction: row;
+        text-align: left;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .desafio-icono {
+        font-size: 2.2rem;
+        margin-bottom: 0;
+    }
+
+    .desafio-info {
+        flex: 1;
+        text-align: left;
+    }
+
+    .desafio-info h3 { font-size: 1rem; }
+    .desafio-info p { font-size: 0.8rem; }
+
+    .desafio-estado { margin-top: 0; }
+
+    .btn-back {
+        top: 12px;
+        left: 12px;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .matematicas-container { padding: 30px 14px; }
 }
 
 @media (max-width: 480px) {
-    .header-categoria h1 { font-size: 2rem; }
-    .grid-temas { max-width: 100%; }
-    .tarjeta-tema { padding: 14px 12px; border-radius: 18px; }
-    .icono-tema { font-size: 2rem; }
-    .info-tema h3 { font-size: 1rem; }
-    .info-tema p { font-size: 0.75rem; }
-    .badge { font-size: 0.6rem; padding: 2px 10px; }
+    .hero h1 { font-size: 1.8rem; }
+    .desafio-item { padding: 14px 12px; gap: 12px; }
+    .desafio-icono { font-size: 1.8rem; }
+    .desafio-info h3 { font-size: 0.9rem; }
+    .badge { font-size: 0.55rem; padding: 2px 12px; }
 }

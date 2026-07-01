@@ -1,412 +1,464 @@
 /* ==========================================
-   1. CONFIGURACIÓN GENERAL (CIENCIAS)
-   ========================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   🔬 CIENCIAS - HUB CENTRAL CONVERGENTE
+   ══════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body {
-    width: 100%;
+body {
     min-height: 100vh;
+    font-family: 'Fredoka', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #081018;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-body {
-    font-family: 'Fredoka', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: radial-gradient(ellipse at 30% 20%, #0c1929, #060d18);
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-}
-
-/* ==========================================
-   2. FONDO CON ESTRELLAS (reutilizado)
-   ========================================== */
-#fondo-estrellas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.estrella {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    animation: parpadeo 3s ease-in-out infinite;
-    animation-delay: var(--delay);
-    width: var(--size);
-    height: var(--size);
-    top: var(--top);
-    left: var(--left);
-    opacity: 0.6;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes parpadeo {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
-}
-
-.estrella-fugaz {
-    position: absolute;
-    width: 120px;
-    height: 2px;
-    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.7));
-    border-radius: 1px;
-    opacity: 0;
-    transform: rotate(var(--angulo));
-    animation: fugaz var(--duracion) ease-in-out infinite;
-    animation-delay: var(--retraso);
-    top: var(--inicio-y);
-    left: var(--inicio-x);
-}
-
-@keyframes fugaz {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0) rotate(var(--angulo)) scaleX(0);
-    }
-    5% {
-        opacity: 1;
-        transform: translate(0, 0) rotate(var(--angulo)) scaleX(1);
-    }
-    15% {
-        opacity: 0;
-        transform: translate(150px, 100px) rotate(var(--angulo)) scaleX(0);
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* ==========================================
-   3. CONTENIDO PRINCIPAL
-   ========================================== */
-#contenido-ciencias {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 30px 20px 40px;
-    max-width: 1100px;
-    width: 100%;
-    animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================
-   4. BOTÓN VOLVER
-   ========================================== */
-.btn-volver {
+.btn-back {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 10;
-    color: #60a5fa;
+    z-index: 100;
     text-decoration: none;
+    color: #7dd3fc;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 10px 16px;
+    border-radius: 12px;
     font-family: 'Fredoka', sans-serif;
-    font-size: 0.9rem;
-    background: rgba(15, 12, 30, 0.6);
-    backdrop-filter: blur(8px);
-    padding: 10px 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(96, 165, 250, 0.15);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s ease;
 }
 
-.btn-volver:hover {
-    color: white;
-    background: rgba(96, 165, 250, 0.2);
-    border-color: rgba(96, 165, 250, 0.3);
+.btn-back:hover {
+    background: rgba(34, 211, 238, 0.1);
+    border-color: rgba(34, 211, 238, 0.15);
 }
 
-/* ==========================================
-   5. ENCABEZADO DE CATEGORÍA
-   ========================================== */
-.header-categoria {
-    margin-bottom: 45px;
+.research-center {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.header-categoria h1 {
-    font-size: 3.5rem;
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: -1px;
-    line-height: 1.2;
     margin-bottom: 8px;
 }
 
-.header-categoria h1 span {
-    background: linear-gradient(135deg, #60a5fa, #a855f7);
+.hero h1 span {
+    background: linear-gradient(135deg, #22d3ee, #0891b2);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.header-categoria p {
+.hero p {
     color: #94a3b8;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.6;
 }
 
-/* ==========================================
-   6. GRID DE TEMAS
-   ========================================== */
-.grid-temas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+/* ═══════════════════════════════════════════════
+   HUB CENTRAL CONVERGENTE
+   ═══════════════════════════════════════════════ */
+.hub {
+    position: relative;
+    width: 820px;
+    height: 620px;
+    margin: 0 auto;
 }
 
-.tarjeta-tema {
+/* ─── RESPLANDOR ─── */
+.hub-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.06), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ─── LÍNEAS (con transición suave para hover) ─── */
+.line {
+    position: absolute;
+    background: rgba(34, 211, 238, 0.12);
+    pointer-events: none;
+    z-index: 1;
+    transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* Solar: vertical al centro */
+.line-solar {
+    width: 2px;
+    height: 185px;
+    left: 50%;
+    top: 125px;
+    transform: translateX(-50%);
+}
+
+/* Cuántica: horizontal al centro */
+.line-atomic {
+    width: 310px;
+    height: 2px;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Microscópica: horizontal al centro */
+.line-biology {
+    width: 310px;
+    height: 2px;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ─── LÍNEAS INFERIORES ─── */
+
+/* Línea vertical (compartida por ambas) */
+.line-vertical-bottom {
+    position: absolute;
+    width: 2px;
+    height: 225px;
+    left: 50%;
+    top: 310px;
+    transform: translateX(-50%);
+    background: rgba(34, 211, 238, 0.18);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Rama izquierda (Geología) */
+.line-horizontal-bottom-left {
+    position: absolute;
+    width: 280px;
+    height: 2px;
+    left: 50%;
+    top: 535px;
+    transform: translateX(-100%);
+    background: rgba(34, 211, 238, 0.18);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Rama derecha (Paleontología) */
+.line-horizontal-bottom-right {
+    position: absolute;
+    width: 280px;
+    height: 2px;
+    right: 50%;
+    top: 535px;
+    transform: translateX(100%);
+    background: rgba(34, 211, 238, 0.18);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ─── NÚCLEO ─── */
+.core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 140px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(20, 50, 70, 0.85), rgba(10, 20, 35, 0.92));
+    border: 1px solid rgba(34, 211, 238, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    background: rgba(15, 12, 30, 0.6);
+    justify-content: center;
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(96, 165, 250, 0.08);
-    border-radius: 24px;
-    padding: 28px 18px 22px;
-    text-decoration: none;
-    color: #ffffff;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.4s ease,
-                border-color 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-    animation: aparecerEscalonado 0.6s ease forwards;
+    z-index: 5;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    padding: 16px;
+    transition: all 0.3s ease;
 }
 
-.tarjeta-tema:nth-child(1) { animation-delay: 0.1s; }
-.tarjeta-tema:nth-child(2) { animation-delay: 0.2s; }
-.tarjeta-tema:nth-child(3) { animation-delay: 0.3s; }
-.tarjeta-tema:nth-child(4) { animation-delay: 0.4s; }
-.tarjeta-tema:nth-child(5) { animation-delay: 0.5s; }
+.core:hover {
+    border-color: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 20px 80px rgba(34, 211, 238, 0.06);
+}
 
-@keyframes aparecerEscalonado {
-    from { opacity: 0; transform: translateY(30px); }
+.core-icon {
+    font-size: 2.8rem;
+    z-index: 1;
+}
+
+.core-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    z-index: 1;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.core-sub {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    z-index: 1;
+    margin-top: -2px;
+}
+
+.core-status {
+    font-size: 0.5rem;
+    color: #22d3ee;
+    z-index: 1;
+    letter-spacing: 0.3px;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+
+/* ─── ESTACIONES (con transición suave) ─── */
+.station {
+    position: absolute;
+    width: 160px;
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    animation: aparecerEstacion 0.4s ease forwards;
+}
+
+.station:nth-child(8) { animation-delay: 0.1s; }
+.station:nth-child(9) { animation-delay: 0.2s; }
+.station:nth-child(10) { animation-delay: 0.3s; }
+.station:nth-child(11) { animation-delay: 0.4s; }
+.station:nth-child(12) { animation-delay: 0.5s; }
+
+@keyframes aparecerEstacion {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.tarjeta-tema::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.04) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
+.station:not(.locked):hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 23, 42, 0.8);
 }
 
-.tarjeta-tema:hover:not([style*="opacity: 0.5"])::before {
-    opacity: 1;
-}
-
-.tarjeta-tema::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 24px;
-    padding: 2px;
-    background: conic-gradient(from 0deg, transparent, var(--color), transparent, var(--color), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-}
-
-.tarjeta-tema:hover:not([style*="opacity: 0.5"]) {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--glow);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.tarjeta-tema:hover:not([style*="opacity: 0.5"])::after {
-    opacity: 1;
-}
-
-.tarjeta-tema:active:not([style*="opacity: 0.5"]) {
-    transform: scale(0.95) !important;
+.station:not(.locked):active {
+    transform: scale(0.96);
     transition-duration: 0.05s;
 }
 
-.icono-tema {
-    font-size: 3.2rem;
-    margin-bottom: 12px;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+.station.locked {
+    opacity: 0.35;
+    cursor: default;
 }
 
-.tarjeta-tema:hover:not([style*="opacity: 0.5"]) .icono-tema {
-    transform: scale(1.15) rotate(-5deg);
+.station .emoji {
+    font-size: 2.2rem;
+    transition: transform 0.3s ease;
 }
 
-.info-tema h3 {
-    font-size: 1.2rem;
+.station:not(.locked):hover .emoji {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.station .title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: -0.2px;
+}
+
+.station .badge {
+    font-size: 0.5rem;
     font-weight: 600;
-    margin-bottom: 4px;
-    letter-spacing: -0.3px;
-}
-
-.info-tema p {
-    color: #94a3b8;
-    font-size: 0.85rem;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-.estado-tema {
-    margin-top: 14px;
-}
-
-.badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 4px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-top: 4px;
     text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
 
-.badge.disponible {
-    background: rgba(251, 191, 36, 0.15);
-    color: #fbbf24;
-    border: 1px solid rgba(251, 191, 36, 0.15);
-    animation: pulseBadge 3s ease-in-out infinite;
+.badge.active {
+    background: rgba(34, 211, 238, 0.1);
+    color: #22d3ee;
+    border: 1px solid rgba(34, 211, 238, 0.08);
 }
 
-@keyframes pulseBadge {
-    0%, 100% { box-shadow: 0 0 5px rgba(251, 191, 36, 0.1); }
-    50% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.2); }
+.badge.locked {
+    background: rgba(148, 163, 184, 0.06);
+    color: #475569;
+    border: 1px solid rgba(148, 163, 184, 0.04);
 }
 
-.badge.proximamente {
-    background: rgba(148, 163, 184, 0.1);
-    color: #64748b;
-    border: 1px solid rgba(148, 163, 184, 0.08);
+/* ─── POSICIONES ─── */
+.solar {
+    left: calc(50% - 80px);
+    top: 40px;
+}
+.solar:not(.locked):hover {
+    transform: translateY(-6px);
 }
 
-/* ==========================================
-   7. FOOTER
-   ========================================== */
-.footer-ciencias {
-    color: #4a4a6a;
+.atomic {
+    left: 20px;
+    top: calc(50% - 42.5px);
+}
+.atomic:not(.locked):hover {
+    transform: translateY(-6px);
+}
+
+.biology {
+    right: 20px;
+    top: calc(50% - 42.5px);
+}
+.biology:not(.locked):hover {
+    transform: translateY(-6px);
+}
+
+.volcano {
+    left: 60px;
+    bottom: 42.5px;
+}
+
+.dino {
+    right: 60px;
+    bottom: 42.5px;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+.footer-info {
+    text-align: center;
+    color: #2a3a4a;
     font-size: 0.75rem;
-    font-weight: 400;
     letter-spacing: 0.5px;
-    margin-top: 15px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 10;
 }
 
-/* ==========================================
-   8. RESPONSIVE
-   ========================================== */
-@media (max-width: 768px) {
-    .header-categoria h1 {
-        font-size: 2.5rem;
-    }
-
-    .header-categoria p {
-        font-size: 0.95rem;
-        padding: 0 15px;
-    }
-
-    .grid-temas {
-        grid-template-columns: 1fr;
-        max-width: 380px;
-        margin-left: auto;
-        margin-right: auto;
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 860px) {
+    .hub {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
         gap: 14px;
-    }
-
-    .tarjeta-tema {
-        padding: 18px 16px;
-        flex-direction: row;
-        text-align: left;
-        gap: 16px;
         align-items: center;
+        padding: 20px 0;
     }
 
-    .tarjeta-tema .info-tema {
-        flex: 1;
-        text-align: left;
+    .line,
+    .hub-glow {
+        display: none;
     }
 
-    .tarjeta-tema .estado-tema {
-        margin-top: 0;
+    .core,
+    .station {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 340px;
+        flex-direction: row;
+        padding: 14px 20px;
+        gap: 16px;
+        justify-content: flex-start;
+        height: auto;
+        min-height: 60px;
+        border-radius: 14px;
+        opacity: 1 !important;
+        animation: none !important;
     }
 
-    .icono-tema {
-        font-size: 2.4rem;
-        margin-bottom: 0;
-    }
-
-    .btn-volver {
-        top: 12px;
-        left: 12px;
-        font-size: 0.8rem;
-        padding: 8px 14px;
-    }
-
-    #contenido-ciencias {
-        padding: 20px 10px 30px;
-    }
-
-    .header-categoria {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-categoria h1 {
-        font-size: 2rem;
-    }
-
-    .grid-temas {
-        max-width: 100%;
-    }
-
-    .tarjeta-tema {
-        padding: 14px 12px;
+    .core {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 18px;
+        order: -1;
+        margin-bottom: 10px;
         border-radius: 18px;
     }
 
-    .icono-tema {
-        font-size: 2rem;
-    }
+    .core .core-icon { font-size: 2.6rem; }
+    .core .core-title { font-size: 1.1rem; }
+    .core .core-sub { font-size: 0.7rem; }
+    .core .core-status { font-size: 0.5rem; margin-top: 6px; }
 
-    .info-tema h3 {
-        font-size: 1rem;
-    }
+    .station .emoji { font-size: 1.8rem; }
+    .station .title { margin-top: 0; }
 
-    .info-tema p {
+    .solar { order: 1; }
+    .atomic { order: 2; }
+    .biology { order: 3; }
+    .volcano { order: 4; }
+    .dino { order: 5; }
+
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 0.95rem; }
+
+    .btn-back {
+        top: 12px;
+        left: 12px;
         font-size: 0.75rem;
+        padding: 6px 12px;
     }
 
-    .badge {
-        font-size: 0.6rem;
-        padding: 2px 10px;
-    }
+    .research-center { padding: 30px 14px; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .core, .station { max-width: 100%; }
+    .core { padding: 14px; }
+    .core .core-icon { font-size: 2.2rem; }
+    .station { padding: 12px 16px; min-height: 54px; }
+    .station .emoji { font-size: 1.6rem; }
+    .station .title { font-size: 0.75rem; }
+}
+
+/* ═══════════════════════════════════════════════
+   ESTADOS DE HOVER (iluminación de líneas)
+   ═══════════════════════════════════════════════ */
+
+/* La clase .line-active se añade por JavaScript */
+.line-active {
+    background: rgba(34, 211, 238, 0.8) !important;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.5) !important;
+    opacity: 1 !important;
 }

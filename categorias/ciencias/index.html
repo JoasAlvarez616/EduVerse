@@ -3,111 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔬 Ciencias · EduVerse</title>
+    <title>🔬 Centro de Investigación · EduVerse</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ══════════════════════════════════════════ -->
-    <!-- FONDO CON ESTRELLAS                      -->
-    <!-- ══════════════════════════════════════════ -->
-    <div id="fondo-estrellas">
-        <div class="estrella" style="--delay:0s; --top:5%; --left:10%; --size:2px;"></div>
-        <div class="estrella" style="--delay:2s; --top:15%; --left:75%; --size:3px;"></div>
-        <div class="estrella" style="--delay:4s; --top:45%; --left:20%; --size:1.5px;"></div>
-        <div class="estrella" style="--delay:6s; --top:65%; --left:85%; --size:2.5px;"></div>
-        <div class="estrella" style="--delay:3s; --top:80%; --left:35%; --size:2px;"></div>
-        <div class="estrella" style="--delay:7s; --top:10%; --left:55%; --size:1.8px;"></div>
-        <div class="estrella" style="--delay:1s; --top:35%; --left:90%; --size:2.2px;"></div>
-        <div class="estrella" style="--delay:5s; --top:55%; --left:5%; --size:1.5px;"></div>
-        <div class="estrella" style="--delay:8s; --top:85%; --left:65%; --size:2px;"></div>
-        <div class="estrella" style="--delay:2.5s; --top:2%; --left:40%; --size:1.8px;"></div>
+    <a href="../../index.html" class="btn-back">← Portal Principal</a>
 
-        <!-- Estrellas fugaces -->
-        <div class="estrella-fugaz" style="--duracion: 6s; --retraso: 0s; --inicio-x: 15%; --inicio-y: 5%; --angulo: 35deg;"></div>
-        <div class="estrella-fugaz" style="--duracion: 8s; --retraso: 4s; --inicio-x: 75%; --inicio-y: 10%; --angulo: 30deg;"></div>
-        <div class="estrella-fugaz" style="--duracion: 7s; --retraso: 8s; --inicio-x: 45%; --inicio-y: 2%; --angulo: 40deg;"></div>
-    </div>
+    <main class="research-center">
 
-    <!-- ══════════════════════════════════════════ -->
-    <!-- CONTENIDO DE CIENCIAS                   -->
-    <!-- ══════════════════════════════════════════ -->
-    <div id="contenido-ciencias">
-        <a href="../../index.html" class="btn-volver">← Volver al portal</a>
+        <header class="hero">
+            <h1>🔬 Centro de <span>Investigación</span></h1>
+            <p>Selecciona una estación para comenzar tu exploración</p>
+        </header>
 
-        <div class="header-categoria">
-            <h1>🔬 <span>Ciencias</span></h1>
-            <p>Explora el universo, la vida y la materia</p>
-        </div>
+        <section class="hub">
 
-        <div class="grid-temas">
+            <!-- ═══ RESPLANDOR CENTRAL ═══ -->
+            <div class="hub-glow"></div>
 
-            <!-- Sistema Solar -->
-            <a href="../../modulos/ciencias/sistema-solar/index.html" class="tarjeta-tema" style="--color: #fbbf24; --glow: rgba(251, 191, 36, 0.4);">
-                <div class="icono-tema">🌞</div>
-                <div class="info-tema">
-                    <h3>Sistema Solar</h3>
-                    <p>Viaja entre planetas, lunas y anillos</p>
-                </div>
-                <div class="estado-tema">
-                    <span class="badge disponible">✨ Explorar</span>
-                </div>
+            <!-- ═══ LÍNEAS (exactas) ═══ -->
+            <div class="line line-solar"></div>
+            <div class="line line-atomic"></div>
+            <div class="line line-biology"></div>
+
+            <!-- ═══ LÍNEAS INFERIORES ═══ -->
+<div class="line line-vertical-bottom"></div>
+<div class="line line-horizontal-bottom-left"></div>
+<div class="line line-horizontal-bottom-right"></div>
+
+            <!-- ═══ NÚCLEO ═══ -->
+            <div class="core">
+                <div class="core-icon">🔬</div>
+                <div class="core-title">Laboratorio</div>
+                <div class="core-sub">Central</div>
+                <div class="core-status">● Sistema operativo</div>
+            </div>
+
+            <!-- ═══ ESTACIONES ═══ -->
+            <a href="../../modulos/ciencias/sistema-solar/index.html" class="station solar" data-line="line-solar">
+                <span class="emoji">🌞</span>
+                <span class="title">Estación Espacial</span>
+                <span class="badge active">Activa</span>
             </a>
 
-            <!-- Células -->
-            <div class="tarjeta-tema" style="--color: #34d399; --glow: rgba(52, 211, 153, 0.4); opacity: 0.5; cursor: default;">
-                <div class="icono-tema">🧬</div>
-                <div class="info-tema">
-                    <h3>Células</h3>
-                    <p>Descubre el mundo microscópico</p>
-                </div>
-                <div class="estado-tema">
-                    <span class="badge proximamente">🔜 Próximamente</span>
-                </div>
+            <div class="station atomic locked" data-line="line-atomic">
+                <span class="emoji">⚛️</span>
+                <span class="title">Cuántica</span>
+                <span class="badge locked">🔜</span>
             </div>
 
-            <!-- Átomos -->
-            <div class="tarjeta-tema" style="--color: #60a5fa; --glow: rgba(96, 165, 250, 0.4); opacity: 0.5; cursor: default;">
-                <div class="icono-tema">⚛️</div>
-                <div class="info-tema">
-                    <h3>Modelos Atómicos</h3>
-                    <p>Viaja al corazón de la materia</p>
-                </div>
-                <div class="estado-tema">
-                    <span class="badge proximamente">🔜 Próximamente</span>
-                </div>
+            <div class="station biology locked" data-line="line-biology">
+                <span class="emoji">🧬</span>
+                <span class="title">Microscópica</span>
+                <span class="badge locked">🔜</span>
             </div>
 
-            <!-- Dinosaurios -->
-            <div class="tarjeta-tema" style="--color: #f472b6; --glow: rgba(244, 114, 182, 0.4); opacity: 0.5; cursor: default;">
-                <div class="icono-tema">🦖</div>
-                <div class="info-tema">
-                    <h3>Dinosaurios</h3>
-                    <p>Camina entre gigantes prehistóricos</p>
-                </div>
-                <div class="estado-tema">
-                    <span class="badge proximamente">🔜 Próximamente</span>
-                </div>
-            </div>
-
-            <!-- Volcanes -->
-            <div class="tarjeta-tema" style="--color: #f97316; --glow: rgba(249, 115, 22, 0.4); opacity: 0.5; cursor: default;">
-                <div class="icono-tema">🌋</div>
-                <div class="info-tema">
-                    <h3>Volcanes</h3>
-                    <p>Explora el poder de la Tierra</p>
-                </div>
-                <div class="estado-tema">
-                    <span class="badge proximamente">🔜 Próximamente</span>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="footer-ciencias">🌌 EduVerse · Aprendizaje interactivo 3D</p>
+            <!-- Geología: ilumina la vertical + rama izquierda -->
+    <div class="station volcano locked" data-line="line-vertical-bottom line-horizontal-bottom-left">
+    <span class="emoji">🌋</span>
+    <span class="title">Geología</span>
+    <span class="badge locked">🔜</span>
     </div>
+
+<!-- Paleontología: ilumina la vertical + rama derecha -->
+    <div class="station dino locked" data-line="line-vertical-bottom line-horizontal-bottom-right">
+    <span class="emoji">🦖</span>
+    <span class="title">Paleontología</span>
+    <span class="badge locked">🔜</span>
+    </div>
+
+        </section>
+
+        <p class="footer-info">🌌 EduVerse · Centro de Investigación</p>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- 🚀 EFECTO DE HOVER EN LÍNEAS              -->
+    <!-- ══════════════════════════════════════════ -->
+    <script>
+        // ─── Script para iluminar líneas ───
+    document.addEventListener('DOMContentLoaded', function() {
+
+    const stations = document.querySelectorAll('.station');
+
+    // Función para resetear todas las líneas
+    function resetLines() {
+        document.querySelectorAll('.line').forEach(line => {
+            line.style.background = '';
+            line.style.boxShadow = '';
+            line.style.opacity = '';
+        });
+    }
+
+    // Función para iluminar una o varias líneas
+    function highlightLines(lineClasses) {
+        const classes = lineClasses.split(' ');
+        classes.forEach(cls => {
+            const targetLine = document.querySelector('.' + cls);
+            if (targetLine) {
+                targetLine.style.background = 'rgba(34, 211, 238, 0.8)';
+                targetLine.style.boxShadow = '0 0 20px rgba(34, 211, 238, 0.4)';
+                targetLine.style.opacity = '1';
+            }
+        });
+    }
+
+    stations.forEach(station => {
+        station.addEventListener('mouseenter', function() {
+            const lineClass = this.dataset.line;
+            if (lineClass) {
+                resetLines();
+                highlightLines(lineClass);
+            }
+        });
+
+        station.addEventListener('mouseleave', function() {
+            resetLines();
+        });
+    });
+
+});
+    </script>
 
 </body>
 </html>
