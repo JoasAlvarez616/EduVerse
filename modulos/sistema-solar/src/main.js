@@ -11,15 +11,47 @@ const sistemaSolar = new SistemaSolar();
 
 let ultimoPlanetaClickeado = null;
 
-engine.cargarModulo(sistemaSolar);
+// ─── Portal de lanzamiento ───
+const portal = document.getElementById('portal-lanzamiento');
+const btnLanzamiento = document.getElementById('btn-lanzamiento');
+const experiencia = document.getElementById('experiencia-3d');
 
-// ─── Sobrescribir onObjectClick para guardar el planeta ───
-const originalOnObjectClick = sistemaSolar.onObjectClick.bind(sistemaSolar);
-sistemaSolar.onObjectClick = function(objeto) {
-    console.log('📞 onObjectClick llamado para:', objeto.userData?.nombre);
-    ultimoPlanetaClickeado = objeto;
-    originalOnObjectClick(objeto);
-};
+console.log('🔍 Portal:', portal);
+console.log('🔍 Botón:', btnLanzamiento);
+console.log('🔍 Experiencia:', experiencia);
+
+// ─── Función para iniciar el Sistema Solar ───
+function iniciarSistemaSolar() {
+    console.log('🚀 Iniciando Sistema Solar');
+
+    // 1. Ocultar portal
+    if (portal) portal.classList.add('oculto');
+
+    // 2. Mostrar experiencia 3D
+    if (experiencia) experiencia.classList.add('visible');
+
+    // 3. Iniciar el motor con el Sistema Solar
+    engine.cargarModulo(sistemaSolar);
+
+    // 4. Guardar referencia para cerrar modal
+    const originalOnObjectClick = sistemaSolar.onObjectClick.bind(sistemaSolar);
+    sistemaSolar.onObjectClick = function(objeto) {
+        ultimoPlanetaClickeado = objeto;
+        originalOnObjectClick(objeto);
+    };
+
+    console.log('✅ Sistema Solar iniciado');
+}
+
+// ─── Evento del botón ───
+if (btnLanzamiento) {
+    btnLanzamiento.addEventListener('click', iniciarSistemaSolar);
+    console.log('✅ Botón de lanzamiento configurado');
+} else {
+    console.warn('⚠️ Botón de lanzamiento no encontrado');
+    // Fallback: si no hay botón, iniciar directamente
+    iniciarSistemaSolar();
+}
 
 // ─── Tooltip flotante ───
 const tooltip = document.createElement('div');
@@ -46,6 +78,7 @@ document.body.appendChild(tooltip);
 
 let posX = 0, posY = 0;
 
+// ─── Hover callback ───
 engine.setHoverCallback((nombre, event) => {
     if (nombre) {
         tooltip.textContent = nombre;
@@ -100,8 +133,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ─── 🔥 LOOP: YA NO SOBRESCRIBIMOS engine._loop ───
-// El Engine ya tiene su propio loop con la lógica del zoom.
-// No necesitamos hacer nada aquí.
+// ─── ❌ ELIMINADO: NO sobrescribir engine._loop ───
+// El Engine ya tiene su propio loop con el zoom y la animación.
 
-console.log('🚀 Sistema Solar iniciado');
+// ─── Controles de velocidad ───
+document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (e.key === 'ArrowUp') {
+        if (sistemaSolar.timeScale !== undefined) {
+            sistemaSolar.timeScale = Math.min((sistemaSolar.timeScale || 1) + 0.1, 2);
+            console.log(`⏩ Velocidad: ${sistemaSolar.timeScale.toFixed(1)}x`);
+        }
+    }
+    if (e.key === 'ArrowDown') {
+        if (sistemaSolar.timeScale !== undefined) {
+            sistemaSolar.timeScale = Math.max((sistemaSolar.timeScale || 1) - 0.1, 0.1);
+            console.log(`⏪ Velocidad: ${sistemaSolar.timeScale.toFixed(1)}x`);
+        }
+    }
+    if (e.key === ' ') {
+        e.preventDefault();
+        if (sistemaSolar.timeScale !== undefined) {
+            sistemaSolar.timeScale = sistemaSolar.timeScale === 0 ? 1 : 0;
+            console.log(`⏸️ ${sistemaSolar.timeScale === 0 ? 'Pausado' : 'Reanudado'}`);
+        }
+    }
+});
+
+console.log('🚀 Portal de lanzamiento listo');

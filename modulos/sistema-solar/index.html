@@ -1,15 +1,75 @@
-<!-- modulos/sistema-solar/index.html -->
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌞 Sistema Solar · EduVerse</title>
 
-    <!-- 🔥 ESTILOS GLOBALES DEL MODAL -->
     <link rel="stylesheet" href="../../src/ui/modal.css">
-
-    <!-- Estilos del módulo (sin el modal) -->
     <link rel="stylesheet" href="style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<body>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- 🔥 PORTAL DE LANZAMIENTO                 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="portal-lanzamiento">
+        <div id="menu-lanzamiento">
+            <div class="header-espacial">
+                <span class="emblema">🪐</span>
+                <h1>Portal al <span>Sistema Solar</span></h1>
+                <p>Prepárate para despegar</p>
+            </div>
+
+            <button id="btn-lanzamiento" class="btn-lanzamiento">
+                <div class="btn-contenido">
+                    <span class="btn-icono">🚀</span>
+                    <span class="btn-texto">Iniciar viaje</span>
+                    <span class="btn-subtexto">Explora planetas, lunas y anillos</span>
+                </div>
+                <div class="btn-onda"></div>
+                <div class="btn-onda" style="animation-delay: 0.5s;"></div>
+                <div class="btn-onda" style="animation-delay: 1s;"></div>
+            </button>
+
+            <p class="footer">🌌 Aprende Jugando · Proyecto educativo interactivo</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- EXPERIENCIA 3D                           -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="experiencia-3d">
+        <div id="canvas-container"></div>
+
+        <!-- Modal -->
+        <div id="modal-info" class="oculto">
+            <div class="modal-contenido">
+                <button id="modal-cerrar" class="modal-cerrar">&times;</button>
+                <div id="modal-imagen-contenedor">
+                    <img id="modal-imagen" src="" alt="" style="display: none;">
+                </div>
+                <h2 id="modal-titulo">Título</h2>
+                <p id="modal-descripcion">Descripción</p>
+                <p id="modal-dato-curioso">✨ Dato curioso</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SCRIPTS                                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="src/main.js"></script>
+
+</body>
+</html>
