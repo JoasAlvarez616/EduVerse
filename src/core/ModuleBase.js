@@ -1,3 +1,5 @@
+// src/core/ModalBase.js
+
 export class ModuleBase {
     constructor(config = {}) {
         this.nombre = config.nombre || 'Módulo sin nombre';

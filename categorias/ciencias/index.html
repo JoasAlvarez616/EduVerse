@@ -24,15 +24,15 @@
             <!-- ═══ RESPLANDOR CENTRAL ═══ -->
             <div class="hub-glow"></div>
 
-            <!-- ═══ LÍNEAS (exactas) ═══ -->
+            <!-- ═══ LÍNEAS ═══ -->
             <div class="line line-solar"></div>
             <div class="line line-atomic"></div>
             <div class="line line-biology"></div>
 
             <!-- ═══ LÍNEAS INFERIORES ═══ -->
-<div class="line line-vertical-bottom"></div>
-<div class="line line-horizontal-bottom-left"></div>
-<div class="line line-horizontal-bottom-right"></div>
+            <div class="line line-vertical-bottom"></div>
+            <div class="line line-horizontal-bottom-left"></div>
+            <div class="line line-horizontal-bottom-right"></div>
 
             <!-- ═══ NÚCLEO ═══ -->
             <div class="core">
@@ -55,25 +55,25 @@
                 <span class="badge locked">🔜</span>
             </div>
 
-            <div class="station biology locked" data-line="line-biology">
-                <span class="emoji">🧬</span>
-                <span class="title">Microscópica</span>
+        <a href="../../modulos/ciencias/celulas/index.html" class="station biology" data-line="line-biology">
+        <span class="emoji">🔬</span>
+        <span class="title">Microscópica</span>
+        <span class="badge active">Activa</span>
+        </a>
+
+            <!-- Geología -->
+            <div class="station volcano locked" data-line="line-vertical-bottom line-horizontal-bottom-left">
+                <span class="emoji">🌋</span>
+                <span class="title">Geología</span>
                 <span class="badge locked">🔜</span>
             </div>
 
-            <!-- Geología: ilumina la vertical + rama izquierda -->
-    <div class="station volcano locked" data-line="line-vertical-bottom line-horizontal-bottom-left">
-    <span class="emoji">🌋</span>
-    <span class="title">Geología</span>
-    <span class="badge locked">🔜</span>
-    </div>
-
-<!-- Paleontología: ilumina la vertical + rama derecha -->
-    <div class="station dino locked" data-line="line-vertical-bottom line-horizontal-bottom-right">
-    <span class="emoji">🦖</span>
-    <span class="title">Paleontología</span>
-    <span class="badge locked">🔜</span>
-    </div>
+            <!-- Paleontología -->
+            <div class="station dino locked" data-line="line-vertical-bottom line-horizontal-bottom-right">
+                <span class="emoji">🦖</span>
+                <span class="title">Paleontología</span>
+                <span class="badge locked">🔜</span>
+            </div>
 
         </section>
 
@@ -85,48 +85,45 @@
     <!-- 🚀 EFECTO DE HOVER EN LÍNEAS              -->
     <!-- ══════════════════════════════════════════ -->
     <script>
-        // ─── Script para iluminar líneas ───
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
 
-    const stations = document.querySelectorAll('.station');
+            const stations = document.querySelectorAll('.station');
 
-    // Función para resetear todas las líneas
-    function resetLines() {
-        document.querySelectorAll('.line').forEach(line => {
-            line.style.background = '';
-            line.style.boxShadow = '';
-            line.style.opacity = '';
-        });
-    }
-
-    // Función para iluminar una o varias líneas
-    function highlightLines(lineClasses) {
-        const classes = lineClasses.split(' ');
-        classes.forEach(cls => {
-            const targetLine = document.querySelector('.' + cls);
-            if (targetLine) {
-                targetLine.style.background = 'rgba(34, 211, 238, 0.8)';
-                targetLine.style.boxShadow = '0 0 20px rgba(34, 211, 238, 0.4)';
-                targetLine.style.opacity = '1';
+            function resetLines() {
+                document.querySelectorAll('.line').forEach(line => {
+                    line.style.background = '';
+                    line.style.boxShadow = '';
+                    line.style.opacity = '';
+                });
             }
-        });
-    }
 
-    stations.forEach(station => {
-        station.addEventListener('mouseenter', function() {
-            const lineClass = this.dataset.line;
-            if (lineClass) {
-                resetLines();
-                highlightLines(lineClass);
+            function highlightLines(lineClasses) {
+                const classes = lineClasses.split(' ');
+                classes.forEach(cls => {
+                    const targetLine = document.querySelector('.' + cls);
+                    if (targetLine) {
+                        targetLine.style.background = 'rgba(34, 211, 238, 0.8)';
+                        targetLine.style.boxShadow = '0 0 20px rgba(34, 211, 238, 0.4)';
+                        targetLine.style.opacity = '1';
+                    }
+                });
             }
-        });
 
-        station.addEventListener('mouseleave', function() {
-            resetLines();
-        });
-    });
+            stations.forEach(station => {
+                station.addEventListener('mouseenter', function() {
+                    const lineClass = this.dataset.line;
+                    if (lineClass) {
+                        resetLines();
+                        highlightLines(lineClass);
+                    }
+                });
 
-});
+                station.addEventListener('mouseleave', function() {
+                    resetLines();
+                });
+            });
+
+        });
     </script>
 
 </body>

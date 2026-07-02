@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧬 Biología Celular · EduVerse</title>
+    <link rel="stylesheet" href="../../../src/ui/modal.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="experiencia-3d" class="visible">
+        <div id="canvas-container"></div>
+        <a href="../../../index.html" class="btn-volver">← Volver al portal</a>
+        
+        <!-- Modal -->
+        <div id="modal-info" class="oculto">
+            <div class="modal-contenido">
+                <button id="modal-cerrar" class="modal-cerrar">&times;</button>
+                <h2 id="modal-titulo">Título</h2>
+                <p id="modal-descripcion">Descripción</p>
+                <p id="modal-dato-curioso">✨ Dato curioso</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    
+    <script type="module" src="src/main.js"></script>
+
+</body>
+</html>
